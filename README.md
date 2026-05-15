@@ -29,7 +29,7 @@ uv sync
 Para iniciar el servidor de desarrollo de FastAPI, usa el siguiente comando:
 
 ```bash
-uv run uvicorn blogging_platform_api.main:app --reload
+uv run uvicorn blogging_platform_api:app --reload
 ```
 
 El servidor estará disponible en: [http://127.0.0.1:8000](http://127.0.0.1:8000)
@@ -44,5 +44,5 @@ La documentación interactiva de la API está en:
 Para ejecutar el servidor en producción, usa:
 
 ```bash
-uv run uvicorn blogging_platform_api.main:app --host 0.0.0.0 --port 8000 --workers 4
+uv run uvicorn blogging_platform_api:app --host 0.0.0.0 --port 8000 --workers 4
 ```
