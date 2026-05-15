@@ -1,14 +1,18 @@
-from sqlmodel import SQLModel, Field, Relationship
+from typing import Optional
+
+from sqlmodel import Field, Relationship, SQLModel
+
 
 class Post(SQLModel, table=True):
-    id: int | None = Field(default=None, primary_key=True)
+    id: Optional[int] = Field(default=None, primary_key=True)
     title: str
     content: str
     category: str
-    tags: list["Tag"] = Relationship(back_populates="post") 
+    tags: list["Tag"] = Relationship(back_populates="post")
+
 
 class Tag(SQLModel, table=True):
-    id: int | None = Field(default=None, primary_key=True)
+    id: Optional[int] = Field(default=None, primary_key=True)
     name: str
-    post_id: int | None = Field(default=None, foreign_key="post.id")
-    post: Post | None = Relationship(back_populates="tags")
+    post_id: Optional[int] = Field(default=None, foreign_key="post.id")
+    post: Optional[Post] = Relationship(back_populates="tags")

@@ -1,7 +1,9 @@
-from sqlmodel import create_engine, SQLModel
+from sqlmodel import SQLModel, create_engine
+
 from .settings import settings
 
 engine = create_engine(settings.database_url)
+
 
 def create_db_and_tables():
     SQLModel.metadata.create_all(engine)
