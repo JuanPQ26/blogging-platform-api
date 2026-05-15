@@ -1,6 +1,9 @@
 from dataclasses import dataclass
-from sqlmodel import Session, select, delete, update
+
+from sqlmodel import Session, delete, select, update
+
 from ..models.post import Post, Tag
+
 
 @dataclass
 class PostsRespository:
@@ -22,5 +25,5 @@ class PostsRespository:
     def delete(self, id: int, db: Session) -> None:
         db.exec(delete(Post).where(Post.id == id))
         db.exec(delete(Tag).where(Tag.post_id == id))
-        
+
         db.commit()
