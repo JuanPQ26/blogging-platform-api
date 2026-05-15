@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from typing import Optional
-from sqlmodel import Field, Relationship, SQLModel
+from sqlmodel import Field, Relationship, SQLModel, Mapped
 
 
 class Post(SQLModel, table=True):
@@ -9,7 +9,7 @@ class Post(SQLModel, table=True):
     title: str
     content: str
     category: str
-    tags: list[Tag] = Relationship(back_populates="post")
+    tags: Mapped[list["Tag"]] = Relationship(back_populates="post")
 
 
 class Tag(SQLModel, table=True):
