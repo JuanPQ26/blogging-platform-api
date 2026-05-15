@@ -1,13 +1,13 @@
 # Blogging Platform API
 
-Este es un proyecto base que utiliza **FastAPI** con **SQLModel** y **SQLite**, administrado con **Poetry** para la gestión de dependencias.
+Este es un proyecto base que utiliza **FastAPI** con **SQLModel** y **SQLite**, administrado con **uv** para la gestión de dependencias.
 
 ## Requisitos
 
 Antes de comenzar, asegúrate de tener instalado lo siguiente:
 
-- [Python](https://www.python.org/) 3.8+
-- [Poetry](https://python-poetry.org/docs/#installation)
+- [Python](https://www.python.org/) 3.13+
+- [uv](https://github.com/nikita-skobov/uv_management)
 
 ## Instalación
 
@@ -18,16 +18,10 @@ git clone https://github.com/tuusuario/tu-repo.git
 cd tu-repo
 ```
 
-Instala las dependencias con Poetry:
+Instala las dependencias con uv:
 
 ```bash
-poetry install
-```
-
-Activa el entorno virtual:
-
-```bash
-poetry shell
+uv sync
 ```
 
 ## Ejecución del servidor
@@ -35,7 +29,7 @@ poetry shell
 Para iniciar el servidor de desarrollo de FastAPI, usa el siguiente comando:
 
 ```bash
-poetry uvicorn app.main:app --reload
+uv run uvicorn blogging_platform_api.main:app --reload
 ```
 
 El servidor estará disponible en: [http://127.0.0.1:8000](http://127.0.0.1:8000)
@@ -50,5 +44,5 @@ La documentación interactiva de la API está en:
 Para ejecutar el servidor en producción, usa:
 
 ```bash
-uvicorn app.main:app --host 0.0.0.0 --port 8000 --workers 4
+uv run uvicorn blogging_platform_api.main:app --host 0.0.0.0 --port 8000 --workers 4
 ```
