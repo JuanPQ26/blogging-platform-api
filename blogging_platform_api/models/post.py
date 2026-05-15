@@ -9,7 +9,7 @@ class Post(SQLModel, table=True):
     title: str
     content: str
     category: str
-    tags: list[Tag] = Relationship(back_populates="post")
+    tags: list["Tag"] = Relationship(back_populates="post")
 
 
 class Tag(SQLModel, table=True):
